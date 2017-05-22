@@ -15,6 +15,10 @@ Instructions:
 9. Enter your api in '' of the apikey=. example: apikey = 'asdf-asdf-asdf-asdf'
 10. Save file.
 11. Start cmd.exe, go to the source code folder and type python Main.py
-12. When you want new calculations just delete w.txt, xdata.npy and ydata.npy
+12. After the program is finished you will have an image for your daily win rate for
+the current day's hours. Next time you run the program it will use the already
+downloaded files to calculate so you will not going to wait again.
+12. When you want new calculations just delete w.txt.
+13. When you want to download the new data just delete the old data: xdata.npy and ydata.npy
 
 contacts: ivodwvio@mail.bg
