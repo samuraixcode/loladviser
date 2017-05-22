@@ -37,7 +37,7 @@ elif (totalGames < 100):
     print('at least 100 games.')
     exit()
 gameList = result['matches']
-requestCounter = 2
+totalRequests = requestCounter = 2
 print('Total games online:', totalGames)
 
 if fileExist(xfile) and fileExist(yfile):
@@ -63,9 +63,13 @@ else:
         X = np.append(X, [[dateTime.weekday(), dateTime.hour]], axis=0)
         Y = np.append(Y, [[winner]], axis=0)
         requestCounter += 1
-        if requestCounter == 10:
-            time.sleep(11)
+        totalRequests += 1
+        if requestCounter >= 10:
+            time.sleep(10)
             requestCounter = 0
+        if totalRequests >= 500:
+            time.sleep(600)
+            totalRequests = 0
     np.save(xfile, X)
     np.save(yfile, Y)
     print('Complete.')

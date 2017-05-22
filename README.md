@@ -20,5 +20,16 @@ Next time you run the program it will use the already
 downloaded files to calculate for the day's winrate.
 12. When you want new AI calculations just delete w.txt.
 13. When you want to include in the AI's database the new played games just delete the old data: xdata.npy and ydata.npy.
+14. Becouse of riot's limit:
+Rate Limit(s):
+10 requests every 10 seconds 
+500 requests every 10 minutes 
+Take care waiting 10 minutes after downloading the data,
+if you want for any reason to download fresh copy again,
+or they will not respond to the program, and the program will output
+a KeyError.
+15. If you like this program and you want further development,
+pls consider donation, in the Donation folder is the Bitcoin
+address and QR code.
 
 contacts: ivodwvio@mail.bg
