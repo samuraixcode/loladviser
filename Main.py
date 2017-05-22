@@ -64,7 +64,7 @@ else:
         Y = np.append(Y, [[winner]], axis=0)
         requestCounter += 1
         if requestCounter == 10:
-            time.sleep(10)
+            time.sleep(11)
             requestCounter = 0
     np.save(xfile, X)
     np.save(yfile, Y)
