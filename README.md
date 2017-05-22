@@ -15,5 +15,6 @@ Instructions:
 9. Enter your api in '' of the apikey=. example: apikey = 'asdf-asdf-asdf-asdf'
 10. Save file.
 11. Start cmd.exe, go to the source code folder and type python Main.py
+12. When you want new calculations just delete w.txt, xdata.npy and ydata.npy
 
 contacts: ivodwvio@mail.bg
