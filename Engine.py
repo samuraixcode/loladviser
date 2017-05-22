@@ -19,7 +19,6 @@ class Engine:
 		np.set_printoptions(suppress=True)
 
 	def debug(self, msg):
-		print(msg)
 		self.report += '{}\n'.format(msg)
 
 	def debug_clear(self):
@@ -43,13 +42,14 @@ class Engine:
 			training = False
 
 		if training:
+			print('Starting training.')
 			T = Trainer(NN)
 			for n in range(12):
 				T.train(X, Y)
+			print('Complete')
 		else:
 			NN.loadWeights()
 
-		self.debug('-'*45)
 		self.debug('Neural Network Size: {}'.format(NNSize))
 		self.debug('Factor: {}'.format(Factor))
 		self.debug('Data: {}'.format(len(Y)))
@@ -58,7 +58,7 @@ class Engine:
 
 		Xf = np.zeros(shape=(0,2), dtype=float)
 
-		hour = 0 #datetime.datetime.now().hour
+		hour = 0
 		today = datetime.datetime.now().weekday()
 		while hour <= 23:
 			Xf = np.append(Xf, [[today, hour]], axis=0)
@@ -73,27 +73,22 @@ class Engine:
 		Xf *= 23
 		Yf *= 100
 
-		# TEMP
 		fig = plt.figure()                                                               
 		ax = fig.add_subplot(1,1,1)                                                      
 
-		# major ticks every 20, minor ticks every 5                                      
-		ymajor_ticks = np.arange(0, 101, 20)                                              
-		yminor_ticks = np.arange(0, 101, 5)           
+		ymajor_ticks = np.arange(0, 101, 10)                                              
+		yminor_ticks = np.arange(0, 101, 1)           
 
-		xmajor_ticks = np.arange(0, 24, 4)                                              
+		xmajor_ticks = np.arange(0, 24, 5)                                              
 		xminor_ticks = np.arange(0, 24, 1)                                        
 
 		ax.set_xticks(xmajor_ticks)                                                       
 		ax.set_xticks(xminor_ticks, minor=True)                                           
 		ax.set_yticks(ymajor_ticks)                                                       
-		ax.set_yticks(yminor_ticks, minor=True)                                           
-
-		# and a corresponding grid                                                       
+		ax.set_yticks(yminor_ticks, minor=True)                                                                                              
 
 		ax.grid(which='both')                                                            
-
-		# or if you want differnet settings for the grids:                               
+                            
 		ax.grid(which='minor', alpha=0.2)                                                
 		ax.grid(which='major', alpha=0.5)  
 
@@ -109,4 +104,4 @@ class Engine:
 		f.write(self.report)
 		f.close()
 
-		print('Complete')
+		print('Program finished.')

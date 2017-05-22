@@ -34,21 +34,24 @@ if (totalGames == 0):
 elif (totalGames < 100):
     print('This user have less than 100 ranked games.')
     print('For better AI performance you must have')
-    print('at least 100 games.')
+    print('at least 100 ranked games.')
     exit()
 gameList = result['matches']
-totalRequests = requestCounter = 2
-print('Total games online:', totalGames)
-
+counter = 5
 if fileExist(xfile) and fileExist(yfile):
     X = np.load(xfile)
     Y = np.load(yfile)
 else:
-    print('Donloading information...')
+    print('Donloading information.')
     for game in gameList:
+        counter += 1
         timeStamp = game['timestamp']
         matchID = game['matchId']
         result = api.get_match_by_id(matchID)
+        if counter % 10 == 0:
+            time.sleep(13)
+        if counter % 500 == 0:
+            time.sleep(603)
         participantIdentities = result['participantIdentities']
         participantId = 0
         for participant in participantIdentities:
@@ -62,19 +65,13 @@ else:
         dateTime = datetime.datetime.fromtimestamp(timeStamp/1000.0)
         X = np.append(X, [[dateTime.weekday(), dateTime.hour]], axis=0)
         Y = np.append(Y, [[winner]], axis=0)
-        requestCounter += 1
-        totalRequests += 1
-        if requestCounter >= 10:
-            time.sleep(10)
-            requestCounter = 0
-        if totalRequests >= 500:
-            time.sleep(600)
-            totalRequests = 0
     np.save(xfile, X)
     np.save(yfile, Y)
     print('Complete.')
 
-print('Total games in database:', len(Y))
+diffGames = len(Y)-totalGames
+if diffGames != 0:
+    print('The database can be renewed.')
 
 engine = Engine(xfile, yfile)
 engine.run()
