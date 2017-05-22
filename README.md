@@ -1,6 +1,6 @@
 # loladviser or in other words League of legends adviser.
 
-Artificial Intelligence collects ranked games data and advises you what hour you have more chance to win.
+Artificial Intelligence collects ranked games data and advises you in what hour you have more chance to win.
 This program is using riot's api to download the data for the AI.
 
 Instructions:
@@ -18,7 +18,7 @@ Instructions:
 12. After the program is finished you will have an image for your daily win rate.
 Next time you run the program it will use the already
 downloaded files to calculate for the day's winrate.
-12. When you want new calculations just delete w.txt.
-13. When you want to download the new data just delete the old data: xdata.npy and ydata.npy
+12. When you want new AI calculations just delete w.txt.
+13. When you want to include in the AI's database the new played games just delete the old data: xdata.npy and ydata.npy.
 
 contacts: ivodwvio@mail.bg
