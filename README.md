@@ -9,7 +9,7 @@ Instructions:
 3. Extract the code into folder.
 4. Get your API key from riot.
 5. Edin loladviser.py, in the beginning of the file there are User configuration settings.
-6. Enter your summoner: playerName = 'shagi'
+6. Enter your summoner name: playerName = 'shagi'
 7. Edit RiotConsts.py, see the regions and copy the full name of your region.
 8. Go back in loladviser.py and enter your region: Consts.REGIONS['europe_nordic_and_east']
 9. Enter your api: apikey = 'asdf-asdf-asdf-asdf'
