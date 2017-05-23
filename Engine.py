@@ -38,7 +38,7 @@ class Engine:
 		XMAX = np.amax(X, axis=0)
 		X /= XMAX
 
-		NN = NeuralNetwork('w.txt', NNSize)
+		NN = NeuralNetwork('weights.txt', NNSize)
 
 		if training:
 			print('Starting training.')
