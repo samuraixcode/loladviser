@@ -1,7 +1,6 @@
 # loladviser aka League of legends adviser
 
 Artificial Intelligence collects ranked games data and advises you in what hour of the day you are more likely to win.
-This program is using riot's api to download the data for the AI.
 
 Instructions:
 1. Install Anaconda python (https://www.continuum.io/downloads) as administrator, accept all defaults.
