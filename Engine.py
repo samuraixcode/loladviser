@@ -35,7 +35,8 @@ class Engine:
 		if Factor == 0: Factor = 1
 		NNSize = [2, 2*Factor, 2*Factor, 7*Factor, 1]
 
-		X /= 23
+		XMAX = np.amax(X, axis=0)
+		X /= XMAX
 
 		NN = NeuralNetwork('w.txt', NNSize)
 
@@ -56,19 +57,17 @@ class Engine:
 
 		Xf = np.zeros(shape=(0,2), dtype=float)
 
-		hour = 0
 		today = datetime.datetime.now().weekday()
-		while hour <= 23:
+		for hour in range(24):
 			Xf = np.append(Xf, [[today, hour]], axis=0)
-			hour += 1
 
-		Xf /= 23
+		Xf /= XMAX
 
 		Yf = np.zeros(shape=(0,1), dtype=float)
 		for i in range(len(Xf)):
 			Yf = np.append(Yf, [NN.forward(Xf[i])], axis=0)
 
-		Xf *= 23
+		Xf *= XMAX
 		Yf *= 100
 
 		fig = plt.figure()                                                               
@@ -77,7 +76,7 @@ class Engine:
 		ymajor_ticks = np.arange(0, 101, 10)                                              
 		yminor_ticks = np.arange(0, 101, 1)           
 
-		xmajor_ticks = np.arange(0, 24, 5)                                              
+		xmajor_ticks = np.arange(0, 24, 2)                                              
 		xminor_ticks = np.arange(0, 24, 1)                                        
 
 		ax.set_xticks(xmajor_ticks)                                                       

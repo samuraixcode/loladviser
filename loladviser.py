@@ -6,6 +6,8 @@ import os
 from Engine import *
 import RiotConsts as Consts
 import pickle
+import base64
+import requests
 
 X = np.zeros(shape=(0,2), dtype=float)
 Y = np.zeros(shape=(0,1), dtype=float)
@@ -54,7 +56,7 @@ if fileExist(xfile) and fileExist(yfile):
 
 newGames = totalGames-len(Y)
 if newGames > 0:
-    print('Updating database.', '[{}]'.format(newGames))
+    print('Downloading games data.', '[{} left]'.format(newGames))
 
 for game in gameList:
 
@@ -68,7 +70,7 @@ for game in gameList:
         participantIdentities = result['participantIdentities']
         counter += 1
     except:
-        print('Updating interrupted.')
+        print('Downloading interrupted.')
         break
 
     participantId = 0
@@ -105,6 +107,8 @@ if totalGames-len(Y) == 0:
 else:
     print('Database not up to date.')
     print('Please restart the program.')
+    print('NOTE: This can happen several times')
+    print('until the data base is up to date.')
     print('Exiting.')
     exit()
 
