@@ -106,6 +106,8 @@ else:
     print('Please restart the program.')
     print('NOTE: This can happen several times')
     print('until the data base is up to date.')
+    print('The interruption occur because riot')
+    print('have request rate limit.')
     print('Exiting.')
     exit()
 
