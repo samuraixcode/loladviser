@@ -19,9 +19,13 @@ if fileExist('greg'):
     gameRegister = pickle.load(infile)
     infile.close()
 
-playerName = 'glvio'
-region=Consts.REGIONS['europe_nordic_and_east']
-apikey = 'RGAPI-961387d3-c9b3-4cbc-a7ca-94ae9b599a43'
+# User configuration settings **********
+
+playerName = ''
+region=Consts.REGIONS['']
+apikey = ''
+
+# **************************************
 
 xfile = 'xdata.npy'
 yfile = 'ydata.npy'
