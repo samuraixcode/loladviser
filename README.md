@@ -14,9 +14,9 @@ Instructions:
 9. Enter your api: apikey = 'asdf-asdf-asdf-asdf'
 10. Save file.
 11. Start cmd.exe, go to the source code folder and type: python loladviser.py
-12. After the program is finished you will have an image for your daily win rate.
+12. After the program is finished you will have an image for your daily win rate (xScale - hours, yScale - %WinRate).
 13. If you like this program and you want further development,
-pls consider donation, in the Donation folder is the Bitcoin
+please consider donation, in the Donation folder is the Bitcoin
 address and QR code.
 
 contacts: ivodwvio@mail.bg
