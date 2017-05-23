@@ -38,8 +38,8 @@ class Engine:
 		X /= 23
 
 		NN = NeuralNetwork('w.txt', NNSize)
-		if NN.weightFileExist():
-			training = False
+		#if NN.weightFileExist():
+		#	training = False
 
 		if training:
 			print('Starting training.')
