@@ -3,16 +3,15 @@ import datetime
 import numpy as np
 import time
 import os
-from Engine import *
+from Engine import Engine
 import RiotConsts as Consts
 import pickle
-import base64
-import requests
 import UserConfiguration as Conf
 
 X = np.zeros(shape=(0,2), dtype=float)
 Y = np.zeros(shape=(0,1), dtype=float)
 
+# Helping function
 def fileExist(f):
     return os.path.isfile(f)
 
@@ -22,10 +21,12 @@ if fileExist('greg'):
     gameRegister = pickle.load(infile)
     infile.close()
 
+# User configuration
 playerName = Conf.USER['name']
 region = Consts.REGIONS[Conf.USER['region']]
 apikey = Conf.USER['api']
 
+# The file names of for the data
 xfile = 'xdata.npy'
 yfile = 'ydata.npy'
 
@@ -45,7 +46,8 @@ elif (totalGames < 10):
 
 gameList = result['matches']
 
-counter = 5
+# Variable to watch for the request limit
+counter = 2
 
 if fileExist(xfile) and fileExist(yfile):
     X = np.load(xfile)
@@ -57,15 +59,19 @@ if newGames > 0:
 
 for game in gameList:
 
+    # Checking if the match is already in our database
     matchID = game['matchId']
     if matchID in gameRegister:
         continue
 
     result = api.get_match_by_id(matchID)
+    counter += 1
+
     participantIdentities = ''
     try:
+        # If there is an exception, we are over the request rate limit
+        # and the last call didn't provide the information
         participantIdentities = result['participantIdentities']
-        counter += 1
     except:
         print('Downloading interrupted.')
         break
@@ -108,6 +114,7 @@ else:
     print('until the data base is up to date.')
     print('The interruption occur because riot')
     print('have request rate limit.')
+    print('There are {} games data left.'.format(totalGames-len(Y)))
     print('Exiting.')
     exit()
 

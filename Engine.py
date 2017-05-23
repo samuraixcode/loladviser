@@ -1,11 +1,9 @@
 import numpy as np
 import warnings
 import matplotlib.pyplot as plt
-import time
-import math
-import random
 import datetime
-from NeuralNetworks import *
+from NeuralNetworks import NeuralNetwork
+from NeuralNetworks import Trainer
 
 class Engine:
 	def __init__(self, xfile, yfile):
