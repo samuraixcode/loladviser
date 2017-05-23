@@ -8,6 +8,7 @@ import RiotConsts as Consts
 import pickle
 import base64
 import requests
+import UserConfiguration as Conf
 
 X = np.zeros(shape=(0,2), dtype=float)
 Y = np.zeros(shape=(0,1), dtype=float)
@@ -21,13 +22,9 @@ if fileExist('greg'):
     gameRegister = pickle.load(infile)
     infile.close()
 
-# User configuration settings **********
-
-playerName = ''
-region=Consts.REGIONS['']
-apikey = ''
-
-# **************************************
+playerName = Conf.USER['name']
+region = Consts.REGIONS[Conf.USER['region']]
+apikey = Conf.USER['api']
 
 xfile = 'xdata.npy'
 yfile = 'ydata.npy'

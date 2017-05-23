@@ -5,8 +5,6 @@ URL = {
        'match_by_id': 'v{version}/match/{matchId}'
 }
 
-#/api/lol/{region}/v2.2/matchlist/by-summoner/{summonerId}
-
 API_VERSIONS = {
         'summoner': '1.4',
         'matchlist': '2.2',
