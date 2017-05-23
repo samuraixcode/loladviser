@@ -92,7 +92,7 @@ class Engine:
 		ax.grid(which='minor', alpha=0.2)                                                
 		ax.grid(which='major', alpha=0.5)  
 
-		plt.plot(Xf, Yf)
+		plt.plot(Yf)
 		plt.axis([0, 23, 0, 100])
 		plt.xlabel('{}/{}/{}'.format(datetime.datetime.now().day,
 			datetime.datetime.now().month, datetime.datetime.now().year))
