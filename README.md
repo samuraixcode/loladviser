@@ -7,11 +7,11 @@ Instructions:
 2. Download the source code.
 3. Extract the code into folder.
 4. Get your API key from riot.
-5. Edin loladviser.py, in the beginning of the file there are User configuration settings.
-6. Enter your summoner name: playerName = 'shagi'
+5. Edin UserConfiguration.py file.
+6. Replace type_your_summoner_name_here with your summoner name.
 7. Edit RiotConsts.py, see the regions and copy the full name of your region.
-8. Go back in loladviser.py and enter your region: Consts.REGIONS['europe_nordic_and_east']
-9. Enter your api: apikey = 'asdf-asdf-asdf-asdf'
+8. Go back in UserConfiguration.py file and replace type_your_region_full_name_here with your region full name.
+9. Replace type_your_apikey_here with your apikey.
 10. Save file.
 11. Start cmd.exe, go to the source code folder and type: python loladviser.py
 12. After the program is finished you will have an image for your daily win rate (xScale - hours, yScale - %WinRate).
