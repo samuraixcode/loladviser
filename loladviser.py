@@ -19,13 +19,9 @@ if fileExist('greg'):
     gameRegister = pickle.load(infile)
     infile.close()
 
-# User configuration settings **********
-
-playerName = ''
-region=Consts.REGIONS['']
-apikey = ''
-
-# **************************************
+playerName = 'glvio'
+region=Consts.REGIONS['europe_nordic_and_east']
+apikey = 'RGAPI-961387d3-c9b3-4cbc-a7ca-94ae9b599a43'
 
 xfile = 'xdata.npy'
 yfile = 'ydata.npy'
@@ -52,7 +48,9 @@ if fileExist(xfile) and fileExist(yfile):
     X = np.load(xfile)
     Y = np.load(yfile)
 
-print('Updating database.', '[{}]'.format(totalGames-len(Y)))
+newGames = totalGames-len(Y)
+if newGames > 0:
+    print('Updating database.', '[{}]'.format(newGames))
 
 for game in gameList:
 

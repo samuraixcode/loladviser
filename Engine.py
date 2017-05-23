@@ -38,15 +38,13 @@ class Engine:
 		X /= 23
 
 		NN = NeuralNetwork('w.txt', NNSize)
-		#if NN.weightFileExist():
-		#	training = False
 
 		if training:
 			print('Starting training.')
 			T = Trainer(NN)
 			for n in range(12):
 				T.train(X, Y)
-			print('Complete')
+			print('Complete.')
 		else:
 			NN.loadWeights()
 
