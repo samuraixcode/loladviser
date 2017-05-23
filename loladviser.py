@@ -37,10 +37,10 @@ totalGames = result['totalGames']
 if (totalGames == 0):
     print('No ranked games this season for this user.')
     exit()
-elif (totalGames < 100):
-    print('This user have less than 100 ranked games.')
+elif (totalGames < 10):
+    print('This user have less than 10 ranked games.')
     print('For better AI performance you must have')
-    print('at least 100 ranked games.')
+    print('at least 10 ranked games.')
     exit()
 
 gameList = result['matches']
