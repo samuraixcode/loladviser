@@ -12,6 +12,23 @@ class Engine:
 		self.xfile = xfile
 		self.yfile = yfile
 
+	def degrees(self, size):
+		for f in range(50):
+			n = [2, 2*f, 2*f, 7*f, 1]
+			result = 0
+			for i in range(len(n)-1):
+				result += n[i]*n[i+1]
+			if result > size:
+				if f == 1: return 1
+				else: return f-1
+
+	def degreesValue(self, v):
+		n = [2, 2*v, 2*v, 7*v, 1]
+		result = 0
+		for i in range(len(n)-1):
+			result += n[i]*n[i+1]
+		return result
+
 	def settings(self):
 		warnings.filterwarnings("ignore")
 		np.set_printoptions(suppress=True)
@@ -23,14 +40,16 @@ class Engine:
 		self.report = ''
 
 	def run(self):
-
 		training = True
 
 		X = np.load(self.xfile)
 		Y = np.load(self.yfile)
 
-		Factor = int(len(Y)/60)
-		if Factor == 0: Factor = 1
+		for n in range(1, 10):
+			print(n, self.degreesValue(n))
+
+		# The right amout of factor
+		Factor = self.degrees(len(Y))
 		NNSize = [2, 2*Factor, 2*Factor, 7*Factor, 1]
 
 		XMAX = np.amax(X, axis=0)
@@ -39,7 +58,7 @@ class Engine:
 		NN = NeuralNetwork('weights.txt', NNSize)
 
 		if training:
-			print('Starting training.')
+			print('Starting training with {} amount of data.'.format(len(Y)))
 			T = Trainer(NN)
 			for n in range(12):
 				T.train(X, Y)
@@ -48,7 +67,7 @@ class Engine:
 			NN.loadWeights()
 
 		self.debug('Neural Network Size: {}'.format(NNSize))
-		self.debug('Factor: {}'.format(Factor))
+		self.debug('Factor: {} ({})'.format(Factor, self.degreesValue(Factor)))
 		self.debug('Data: {}'.format(len(Y)))
 		self.debug('Final Error: {}'.format(float(NN.costFunction(X, Y))))
 		self.debug('Average Error: {}'.format(NN.costFunction(X, Y)/len(Y)))

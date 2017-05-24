@@ -11,7 +11,6 @@ import UserConfiguration as Conf
 X = np.zeros(shape=(0,2), dtype=float)
 Y = np.zeros(shape=(0,1), dtype=float)
 
-# Helping function
 def fileExist(f):
     return os.path.isfile(f)
 
@@ -21,12 +20,10 @@ if fileExist('greg'):
     gameRegister = pickle.load(infile)
     infile.close()
 
-# User configuration
 playerName = Conf.USER['name']
 region = Consts.REGIONS[Conf.USER['region']]
 apikey = Conf.USER['api']
 
-# The file names of for the data
 xfile = 'xdata.npy'
 yfile = 'ydata.npy'
 
@@ -38,10 +35,10 @@ totalGames = result['totalGames']
 if (totalGames == 0):
     print('No ranked games this season for this user.')
     exit()
-elif (totalGames < 10):
-    print('This user have less than 10 ranked games.')
+elif (totalGames < 29):
+    print('This user have less than 29 ranked games.')
     print('For better AI performance you must have')
-    print('at least 10 ranked games.')
+    print('at least 29 ranked games.')
     exit()
 
 gameList = result['matches']
@@ -55,7 +52,7 @@ if fileExist(xfile) and fileExist(yfile):
 
 newGames = totalGames-len(Y)
 if newGames > 0:
-    print('Downloading games data.', '[{} left]'.format(newGames))
+    print('Downloading games data.', '[{} new]'.format(newGames))
 
 for game in gameList:
 
