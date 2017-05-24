@@ -1,6 +1,6 @@
 # loladviser aka League of legends adviser
 
-Artificial Intelligence collects ranked data from riot, and gives your hourly performance for the current day's hours. The AI helps you see your overall performance. Read the README.md file for more information and instructions how to use. This project is far from complete, and there are a lot of features waiting to be implemented. Helping with donation for this project, will give the programmers the resource to continue developing. Read the README.md file for instructions how to use.
+Artificial Intelligence collects ranked data from riot, and gives your hourly performance for the current day. The AI helps you see your overall performance. Read the README.md file for more information and instructions how to use. This project is far from complete, and there are a lot of features waiting to be implemented. Helping with donation for this project, will give the programmers the resource to continue developing. Read the README.md file for instructions how to use.
 
 Instructions:
 1. Install Anaconda python (https://www.continuum.io/downloads) as administrator, accept all defaults.
