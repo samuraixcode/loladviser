@@ -1,6 +1,6 @@
 # loladviser aka League of legends adviser
 
-Artificial Intelligence collects ranked data from riot, and advises in what hour you are more likely to win. The AI helps you dodge low players like feeders and trolls, and helps you focus on your best gaming experience with the good players. This project is far from complete, and there are a lot of features waiting to be implemented. Helping with donation for this project, will give the programmers the resource to continue developing. Read the README.md file for instructions how to use.
+Artificial Intelligence collects ranked data from riot, and gives your hourly performance for the current day's hours. The AI helps you see your overall performance. Read the README.md file for more information and instructions how to use. This project is far from complete, and there are a lot of features waiting to be implemented. Helping with donation for this project, will give the programmers the resource to continue developing. Read the README.md file for instructions how to use.
 
 Instructions:
 1. Install Anaconda python (https://www.continuum.io/downloads) as administrator, accept all defaults.
@@ -22,7 +22,7 @@ USER = {
 
 10. Save file.
 11. Start cmd.exe, go to the source code folder and type: python loladviser.py
-12. After the program is finished you will have an image for your daily win chance (x scale - hours, y scale - % win chance).
+12. After the program is finished you will have an image for your daily performance.
 13. If you like this program and you want further development,
 please consider donation, in the Donation folder is the Bitcoin
 address and QR code.
