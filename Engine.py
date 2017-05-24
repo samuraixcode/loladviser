@@ -45,9 +45,6 @@ class Engine:
 		X = np.load(self.xfile)
 		Y = np.load(self.yfile)
 
-		for n in range(1, 10):
-			print(n, self.degreesValue(n))
-
 		# The right amout of factor
 		Factor = self.degrees(len(Y))
 		NNSize = [2, 2*Factor, 2*Factor, 7*Factor, 1]
